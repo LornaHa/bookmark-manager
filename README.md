@@ -14,9 +14,8 @@ So that I can save a website
 I would like to add the site's address and title to bookmark manager
 ```
 
-### Set up
+### Database Set up
 
-**Database**
 
 Install PostgreSQL - ``` brew install postgresql```
 
@@ -39,12 +38,12 @@ postgres=#
 
 Here we can create new databases
 ```
-postgres=# CREATE DATABASE <database name>;
+postgres=# CREATE DATABASE bookmark_manager;
 ```
 
 Connect to this database 
 ```
-\c <database name>;
+\c bookmark_manager;
 ```
 
 Quitting anytime
@@ -52,7 +51,7 @@ Quitting anytime
 \q
 ```
 
-To create a new table within this database
+Whilst in the bookmark_manager database, create a new table within this database
 ```
 CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
 ```
@@ -61,3 +60,11 @@ To inspect the table
 ```
 \dt
 ```
+
+### To run the Bookmark Manager app
+
+```
+rackup -p 3000
+```
+
+To view bookmarks, navigate to `localhost:3000/bookmarks`.
