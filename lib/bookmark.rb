@@ -1,11 +1,11 @@
+require 'pg'
+
 class Bookmark
 
   def self.all
-    [
-      "https://www.rhs.org.uk",
-      "https://rebellion.earth/",
-      "https://friendsoftheearth.uk"
-    ]
+    connection = PG.connect(dbname: 'lorna_bookmark_manager')
+    result = connection.exec('SELECT * FROM bookmarks;')
+    result.map { |bookmark| bookmark['url'] }
   end
 
 end
