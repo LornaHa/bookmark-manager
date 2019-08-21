@@ -2,6 +2,6 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'rspec', group: :test
-gem 'capybara', group: :test
-gem 'pg'
+gem 'rspec'
+gem 'capybara'
+gem "nokogiri", ">= 1.10.4"
